@@ -1,0 +1,5 @@
+Die_port,PCB_pad,PCB_net,Die_X_mm,Die_Y_mm,PCB_X_mm,PCB_Y_mm,Planar_distance_mm,Status
+D,1,VOUT,0.24,-0.0,1.5,0.0,1.26,Concept - not fabrication verified
+G,2,VIN,0.0,-0.24,0.0,-1.5,1.26,Concept - not fabrication verified
+S,3,GND,-0.24,-0.0,-1.5,0.0,1.26,Concept - not fabrication verified
+B,4,GND,0.0,0.24,0.0,1.5,1.26,Concept - not fabrication verified

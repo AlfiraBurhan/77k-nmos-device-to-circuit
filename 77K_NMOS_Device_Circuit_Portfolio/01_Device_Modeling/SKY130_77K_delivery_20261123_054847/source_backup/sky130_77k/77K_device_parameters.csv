@@ -1,0 +1,6 @@
+parameter,value,unit,conditions,method
+Vth_CC,0.7482849448508321,V,77 K; VDS=0.01 V; Iref=1.0667 uA,"Constant-current, log-current interpolation"
+SS_average,59.9268568,mV/dec,77 K; VDS=0.01 V; VGS=0.64–0.74 V,Linear fit of log10(Id); R2=0.98988
+Gate_voltage_shift,20.24,mV,77 K; Id=100 nA; VDS: 0.01 to 0.37 V,Constant-current shift; not isolated DIBL
+Vth_linear_min,0.745992,V,77 K; VDS=0.01 V; tested fitting windows,Lower candidate from window comparison
+Vth_linear_max,0.780102,V,77 K; VDS=0.01 V; tested fitting windows,Upper candidate from window comparison

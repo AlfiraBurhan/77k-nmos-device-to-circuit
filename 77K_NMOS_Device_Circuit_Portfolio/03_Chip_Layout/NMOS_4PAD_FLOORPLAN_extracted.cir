@@ -1,0 +1,12 @@
+* Extracted by KLayout with SKY130 LVS runset on : 23/11/2026 00:05
+
+* cell NMOS_4PAD_FLOORPLAN
+* pin D
+* pin G
+* pin S
+* pin sky130_gnd
+.SUBCKT NMOS_4PAD_FLOORPLAN D G S sky130_gnd
+* device instance $1 r0 *1 0,0 sky130_fd_pr__nfet_01v8_lvt
+XM$1 S G D sky130_gnd sky130_fd_pr__nfet_01v8_lvt L=0.15 W=1.6 AS=0.68 AD=0.68
++ PS=4.05 PD=4.05
+.ENDS NMOS_4PAD_FLOORPLAN

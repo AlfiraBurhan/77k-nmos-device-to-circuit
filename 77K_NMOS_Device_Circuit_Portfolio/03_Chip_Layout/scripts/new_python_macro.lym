@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<klayout-macro>
+ <description/>
+ <version/>
+ <category>pymacros</category>
+ <prolog/>
+ <epilog/>
+ <doc/>
+ <autorun>false</autorun>
+ <autorun-early>false</autorun-early>
+ <priority>0</priority>
+ <shortcut/>
+ <show-in-menu>false</show-in-menu>
+ <group-name/>
+ <menu-path/>
+ <interpreter>python</interpreter>
+ <dsl-interpreter-name/>
+ <text>
+import pya
+import os
+import csv
+
+desktop = os.path.expanduser("~/Desktop")
+source = os.path.join(
+    desktop, "NMOS_4PAD_PINLABELED_DRAFT.gds"
+)
+output = os.path.join(
+    desktop, "NMOS_4PAD_pinmap.csv"
+)
+
+layout = pya.Layout()
+layout.read(source)
+
+top = layout.cell("NMOS_4PAD_FLOORPLAN")
+if top is None:
+    raise RuntimeError("Top cell not found")
+
+d = layout.dbu
+b = top.bbox()
+
+print("=== DRAWN LAYOUT BOUNDARY ===")
+print("X min:", b.left * d, "um")
+print("X max:", b.right * d, "um")
+print("Y min:", b.bottom * d, "um")
+print("Y max:", b.top * d, "um")
+print("Width:", b.width() * d, "um")
+print("Height:", b.height() * d, "um")
+
+metal5 = layout.find_layer(72, 20)
+if metal5 is None or metal5 &lt; 0:
+    raise RuntimeError("Metal5 not found")
+
+region = pya.Region(top.begin_shapes_rec(metal5))
+region.merge()
+boxes = [shape.bbox() for shape in region.each()]
+
+if len(boxes) != 4:
+    raise RuntimeError(
+        "Expected 4 Metal5 pads, found " + str(len(boxes))
+    )
+
+expected = {
+    "G": (0, 240, "VIN"),
+    "S": (-240, 0, "GND"),
+    "D": (240, 0, "VOUT"),
+    "B": (0, -240, "GND")
+}
+
+rows = []
+print("\n=== BOND PAD COORDINATES ===")
+
+for name, (x, y, signal) in expected.items():
+    pad = min(
+        boxes,
+        key=lambda b:
+        (b.center().x * d - x) ** 2 +
+        (b.center().y * d - y) ** 2
+    )
+
+    cx = pad.center().x * d
+    cy = pad.center().y * d
+
+    if abs(cx - x) &gt; 1 or abs(cy - y) &gt; 1:
+        raise RuntimeError(name + ": pad position mismatch")
+
+    row = [
+        name, signal,
+        round(cx, 3), round(cy, 3),
+        round(pad.width() * d, 3),
+        round(pad.height() * d, 3)
+    ]
+    rows.append(row)
+    print(row)
+
+with open(output, "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow([
+        "Port", "PCB_net",
+        "X_um", "Y_um",
+        "Metal5_width_um", "Metal5_height_um"
+    ])
+    writer.writerows(rows)
+
+print("\nSaved:", output)
+print("NOTE: Drawn boundary is not the die boundary.")
+</text>
+</klayout-macro>

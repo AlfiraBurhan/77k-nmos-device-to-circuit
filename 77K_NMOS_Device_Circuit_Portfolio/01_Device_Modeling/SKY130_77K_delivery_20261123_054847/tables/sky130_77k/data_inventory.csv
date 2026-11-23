@@ -1,0 +1,12 @@
+file,role,T_K,L_um,W_um,points,fixed_column,fixed_min_V,fixed_max_V,sweep_column,sweep_min_V,sweep_max_V,missing_values,duplicate_sweep,nonpositive_Id
+idvd_Vg0p37.csv,low_current_review,77,0.15,1.6,186,Vg_src,0.37,0.37,Vd_src,0.0,1.85,0,0,186
+idvd_Vg0p74.csv,fit,77,0.15,1.6,186,Vg_src,0.74,0.74,Vd_src,0.0,1.85,0,0,0
+idvd_Vg1p11.csv,fit,77,0.15,1.6,186,Vg_src,1.11,1.11,Vd_src,0.0,1.85,0,0,0
+idvd_Vg1p48.csv,check,77,0.15,1.6,186,Vg_src,1.48,1.48,Vd_src,0.0,1.85,0,0,0
+idvd_Vg1p85.csv,fit,77,0.15,1.6,186,Vg_src,1.85,1.85,Vd_src,0.0,1.85,0,0,0
+idvg_Vd0p01.csv,fit,77,0.15,1.6,186,Vd_src,0.01,0.01,Vg_src,0.0,1.85,0,0,58
+idvg_Vd0p37.csv,fit,77,0.15,1.6,186,Vd_src,0.37,0.37,Vg_src,0.0,1.85,0,0,60
+idvg_Vd0p74.csv,check,77,0.15,1.6,186,Vd_src,0.74,0.74,Vg_src,0.0,1.85,0,0,63
+idvg_Vd1p11.csv,check,77,0.15,1.6,186,Vd_src,1.11,1.11,Vg_src,0.0,1.85,0,0,62
+idvg_Vd1p48.csv,check,77,0.15,1.6,186,Vd_src,1.48,1.48,Vg_src,0.0,1.85,0,0,60
+idvg_Vd1p85.csv,check,77,0.15,1.6,186,Vd_src,1.85,1.85,Vg_src,0.0,1.85,0,0,59

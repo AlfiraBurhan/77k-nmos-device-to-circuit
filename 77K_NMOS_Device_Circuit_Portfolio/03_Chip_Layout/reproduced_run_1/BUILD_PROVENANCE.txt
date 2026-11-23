@@ -1,0 +1,9 @@
+SKY130 NMOS four-pad design reproduction
+Core geometry reference: build_sky130_nmos_lvt_draft.py (previously provided by user)
+Reference pad: /Users/a1234/Desktop/sky130_pad_refs/sky130_ef_io__bare_pad.gds
+Reference pad SHA256: a402c4f5e3fb21daccc63c1c47b67f9908b4e32bb9544fcfece3d5f701316c1f
+KLayout DBU (um): 0.001
+Cell: NMOS_4PAD_FLOORPLAN
+Final drawing bbox (um): 545.4 x 555.4
+Status: geometric connectivity pass; full DRC/LVS must be rerun.
+No claim of tapeout readiness, ESD protection, or bondability.

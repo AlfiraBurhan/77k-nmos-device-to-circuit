@@ -1,0 +1,5 @@
+Port,PCB_net,X_um,Y_um,Metal5_width_um,Metal5_height_um
+G,VIN,0.0,240.0,65.4,75.4
+S,GND,-240.0,0.0,65.4,75.4
+D,VOUT,240.0,0.0,65.4,75.4
+B,GND,0.0,-240.0,65.4,75.4

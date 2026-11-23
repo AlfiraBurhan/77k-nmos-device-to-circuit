@@ -1,0 +1,4 @@
+.subckt NMOS_4PAD_FLOORPLAN D G S B
+M1 D G S B sky130_fd_pr__nfet_01v8_lvt w=1.60u l=0.15u
+.ends NMOS_4PAD_FLOORPLAN
+.end

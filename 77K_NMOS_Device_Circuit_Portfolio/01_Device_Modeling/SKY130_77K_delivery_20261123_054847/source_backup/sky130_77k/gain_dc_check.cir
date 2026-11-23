@@ -1,0 +1,17 @@
+DC gain check: Retuned_VG, Author_77K
+.include "/content/sky130_77k/cryo_models/sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice"
+.option scale=1u
+.param mc_mm_switch=0 mc_pr_switch=0
+.temp -196.15
+VDD supply 0 1.8
+RD supply out 9000.0
+VG g 0 0.874552181
+X1 out g 0 0 sky130_fd_pr__nfet_01v8_lvt l=0.15 w=1.6
+.control
+set wr_singlescale
+set wr_vecnames
+dc VG 0.874502181 0.874602181 5e-05
+wrdata gain_dc_check.txt v(g) v(out)
+quit
+.endc
+.end

@@ -1,0 +1,17 @@
+Three-model comparison at 77 K
+.include "/content/sky130_77k/cryo_models/sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice"
+.option scale=1u
+.param mc_mm_switch=0 mc_pr_switch=0
+.temp -196.15
+VD d 0 0
+VG g 0 1.85
+X1 d g 0 0 sky130_fd_pr__nfet_01v8_lvt l=0.15 w=1.6
+.control
+set wr_singlescale
+set wr_vecnames
+dc VD 0 1.85 0.01
+let idrain = -i(VD)
+wrdata three_model_result.txt v(d) idrain
+quit
+.endc
+.end

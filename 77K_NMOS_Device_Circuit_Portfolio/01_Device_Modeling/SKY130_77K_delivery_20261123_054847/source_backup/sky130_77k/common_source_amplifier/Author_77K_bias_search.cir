@@ -1,0 +1,17 @@
+Bias search: Author_77K at 77 K
+.include "/content/sky130_77k/cryo_models/sky130_fd_pr__nfet_01v8_lvt__tt_77k.corner.spice"
+.option scale=1u
+.param mc_mm_switch=0 mc_pr_switch=0
+.temp -196.15
+VD d 0 0.9
+VG g 0 0
+X1 d g 0 0 sky130_fd_pr__nfet_01v8_lvt l=0.15 w=1.6
+.control
+set wr_singlescale
+set wr_vecnames
+dc VG 0 1.8 0.001
+let idrain = -i(VD)
+wrdata amplifier_bias_search.txt v(g) idrain
+quit
+.endc
+.end

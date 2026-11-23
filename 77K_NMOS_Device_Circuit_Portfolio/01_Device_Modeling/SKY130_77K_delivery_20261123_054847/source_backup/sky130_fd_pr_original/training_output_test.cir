@@ -1,0 +1,17 @@
+Original SKY130 TT extrapolated to 77 K
+.include "/content/sky130_fd_pr_original/my_nmos_77k_loader.spice"
+.option scale=1u
+.param mc_mm_switch=0 mc_pr_switch=0
+.temp -196.15
+VD d 0 0.01
+VG g 0 1.85
+X1 d g 0 0 sky130_fd_pr__nfet_01v8_lvt l=0.15 w=1.6
+.control
+set wr_singlescale
+set wr_vecnames
+dc VD 0 1.85 0.01
+let idrain = -i(VD)
+wrdata my_candidate_idvd_111.txt v(d) idrain
+quit
+.endc
+.end
